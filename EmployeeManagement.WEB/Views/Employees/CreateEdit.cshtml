@@ -1,0 +1,64 @@
+﻿@using EmployeeManagement.Domain.Entities
+@model Employee
+@{
+    ViewData["Title"] = $"Employee {ViewBag.Page}";
+}
+
+<h2>Employee @ViewBag.Page</h2>
+
+@if (ViewBag.Error != null)
+{
+    <div class="alert alert-danger">@ViewBag.Error</div>
+}
+
+
+
+<form asp-action="@ViewBag.Page" method="post">
+    <input type="hidden" asp-for="ID" />
+
+    <div class="form-group">
+        <label asp-for="Name"></label>
+        <input asp-for="Name" class="form-control" placeholder="Employee Name" required/>
+        <span asp-validation-for="Name" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Email"></label>
+        <input asp-for="Email" type="email" class="form-control" placeholder="name@lotte.id" required/>
+        <span asp-validation-for="Email" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        @{
+            if (ViewBag.Page != "Details")
+            {
+                <label asp-for="Position"></label>
+                <select asp-for="Position" asp-items="ViewBag.Positions" class="form-control" required>
+                    <option value="">-- Select Position --</option>
+                </select>
+                <span asp-validation-for="Position" class="text-danger"></span>
+            }
+            else
+            {
+                <label asp-for="Position"></label>
+                <input asp-for="Position" type="text" class="form-control" placeholder="" />
+                <span asp-validation-for="Position" class="text-danger"></span>
+            }
+        }
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Salary"></label>
+        <input asp-for="Salary" class="form-control" required />
+        <span asp-validation-for="Salary" class="text-danger"></span>
+    </div>
+
+    <div class="form-group mt-3">
+        @{
+            if (ViewBag.Page != "Details")
+            {
+                <button type="submit" class="btn  btn-sm btn-primary">Submit</button>
+            }
+        }
+        <a asp-controller="Employees" asp-action="index" class="btn  btn-sm btn-warning">@((ViewBag.Page != "Details") ? "Cancel" : "Back")</a>
+    </div>
+</form>

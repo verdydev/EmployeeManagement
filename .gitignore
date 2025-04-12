@@ -1,0 +1,71 @@
+.vs/
+
+## Ignore build results
+bin/
+obj/
+out/
+
+## Ignore user-specific files
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+*.VC.db
+
+## Ignore Rider/VSCode files
+.idea/
+.vscode/
+.vscode/settings.json
+.vscode/launch.json
+
+## Ignore logs
+*.log
+
+## Ignore secrets and environment configs
+appsettings.*.local.json
+appsettings.Development.json
+.env
+
+## Ignore publish results
+publish/
+**/publish/
+*.db
+
+## Ignore test results
+TestResults/
+*.nunit.xml
+*.coverage
+
+## Ignore packages
+*.nupkg
+packages/
+.nuget/
+*.snupkg
+
+## Ignore generated files
+Generated_Code/
+*.g.cs
+*.g.i.cs
+
+## Docker / Container files (if using)
+docker-compose.override.yml
+.dockerignore
+
+## Node / Frontend (if using front-end inside microservice)
+node_modules/
+dist/
+*.tsbuildinfo
+
+## OS/Editor specific
+.DS_Store
+Thumbs.db
+*.swp
+*.bak
+*.tmp
+*.old
+
+# Global JetBrains Rider ignore
+.idea/
+
+# GitHub Actions artifacts (optional)
+.github/workflows/*.yml~

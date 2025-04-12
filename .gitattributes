@@ -1,0 +1,9 @@
+# Auto normalize line endings
+* text=auto
+
+# Force consistent line endings
+*.cs text eol=crlf
+*.js text eol=lf
+*.json text eol=lf
+*.html text eol=lf
+*.css text eol=lf
